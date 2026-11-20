@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Chúc Mừng Sinh Nhật 21/11 — Tuổi 23 Rực Rỡ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --surface-glass: rgba(255, 255, 255, 0.90);
+    --text-main: #1e293b;
+    --text-soft: #475569;
+    --accent-rose: #e11d48;
+    --accent-gold: #d97706;
+    --accent-mint: #059669;
+    --border-soft: rgba(244, 114, 182, 0.24);
+    --shadow-elevated: 0 18px 42px rgba(244, 114, 182, 0.14), 0 6px 16px rgba(245, 158, 11, 0.08);
+    --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 12% 14%, rgba(255, 214, 102, 0.44), transparent 36%),
+      radial-gradient(circle at 88% 18%, rgba(255, 154, 178, 0.34), transparent 40%),
+      radial-gradient(circle at 78% 85%, rgba(110, 231, 183, 0.34), transparent 42%),
+      radial-gradient(circle at 20% 82%, rgba(125, 211, 252, 0.36), transparent 40%),
+      linear-gradient(145deg, #fffdf5 0%, #fff5f7 50%, #f0fdf9 100%);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  #fxCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+  }
+
+  .container {
+    position: relative;
+    z-index: 5;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 22px 16px 76px;
+  }
+
+  /* Opening Gate */
+  #introGate {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 18px;
+    padding: 24px 12px;
+    transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
+  }
+
+  #introGate.hidden {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.97);
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+  }
+
+  .badge-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #fef08a, #fed7aa, #fbcfe8);
+    color: #9d174d;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(244, 114, 182, 0.35);
+    box-shadow: 0 6px 18px rgba(244, 114, 182, 0.16);
+  }
+
+  .gift-btn {
+    margin-top: 6px;
+    width: 144px;
+    height: 144px;
+    border-radius: 34px;
+    border: 3px solid #ffffff;
+    background: linear-gradient(135deg, #ff758f 0%, #ff9ebb 45%, #ffd166 100%);
+    box-shadow: 0 20px 42px rgba(255, 117, 143, 0.35), 0 0 0 8px rgba(255, 214, 102, 0.25);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 4rem;
+    animation: floatGift 2.6s ease-in-out infinite;
+    transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
+  }
+
+  .gift-btn:hover {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 24px 48px rgba(255, 117, 143, 0.45), 0 0 0 10px rgba(110, 231, 183, 0.28);
+  }
+
+  .gift-btn:active {
+    transform: scale(0.95);
+  }
+
+  @keyframes floatGift {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(3deg); }
+  }
+
+  .intro-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5.2vw, 3.2rem);
+    line-height: 1.2;
+    background: linear-gradient(120deg, #e11d48, #d97706, #059669, #0284c7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .intro-sub {
+    max-width: 540px;
+    color: var(--text-soft);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* Main App */
+  #mainApp {
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+    animation: fadeUp 0.55s var(--ease-spring);
+  }
+
+  #mainApp.active {
+    display: flex;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--surface-glass);
+    backdrop-filter: blur(16px);
+    padding: 12px 18px;
+    border-radius: 22px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .top-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #be185d;
+  }
+
+  .top-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 14px;
+    padding: 9px 15px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: transform 0.16s var(--ease-spring), box-shadow 0.2s ease, filter 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+  }
+
+  .btn:active {
+    transform: scale(0.96);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #ff5e7e, #ff9671);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(255, 94, 126, 0.28);
+  }
+
+  .btn-sun {
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.26);
+  }
+
+  .btn-mint {
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.24);
+  }
+
+  .btn-soft {
+    background: #fff7ed;
+    color: #9a3412;
+    border: 1px solid #fed7aa;
+  }
+
+  .track-pill {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #065f46;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 6px 12px;
+    border-radius: 999px;
+    max-width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Formal Greeting Card */
+  .card-panel {
+    background: var(--surface-glass);
+    backdrop-filter: blur(18px);
+    border-radius: 28px;
+    padding: 30px 28px;
+    border: 1.5px solid rgba(255, 255, 255, 0.96);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .formal-letter {
+    position: relative;
+    background: linear-gradient(155deg, #fffef9 0%, #fff7f9 52%, #f4fdf9 100%);
+    border: 1.5px solid rgba(245, 158, 11, 0.34);
+    border-radius: 22px;
+    padding: 30px 28px;
+    box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.72), 0 10px 26px rgba(190, 24, 93, 0.06);
+  }
+
+  .letter-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(244, 114, 182, 0.24);
+  }
+
+  .letter-kicker {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+  }
+
+  .age-pill {
+    background: linear-gradient(135deg, #fef08a, #a7f3d0, #bae6fd);
+    color: #0f172a;
+    font-weight: 800;
+    padding: 6px 15px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.65rem, 3.8vw, 2.3rem);
+    font-weight: 700;
+    color: #be123c;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .formal-salutation {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #9d174d;
+    margin-bottom: 12px;
+  }
+
+  .wish-body {
+    font-size: 1.04rem;
+    line-height: 1.85;
+    color: #1e293b;
+    min-height: 104px;
+    white-space: pre-line;
+  }
+
+  .type-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: #e11d48;
+    margin-left: 3px;
+    vertical-align: text-bottom;
+    animation: blinkCursor 0.85s steps(1) infinite;
+  }
+
+  @keyframes blinkCursor {
+    50% { opacity: 0; }
+  }
+
+  .formal-signoff {
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(217, 119, 6, 0.35);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #475569;
+  }
+
+  .formal-signoff strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.08rem;
+    color: #be123c;
+  }
+
+  /* Game Tabs */
+  .games-section-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .games-section-title h2 {
+    font-size: 1.32rem;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .tab-btn {
+    border: 1.5px solid rgba(251, 146, 60, 0.35);
+    background: #ffffff;
+    color: #334155;
+    padding: 9px 14px;
+    border-radius: 15px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.86rem;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-spring);
+  }
+
+  .tab-btn:hover {
+    border-color: #ff5e7e;
+    color: #e11d48;
+    transform: translateY(-2px);
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #ff5e7e, #fbbf24);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 8px 18px rgba(255, 94, 126, 0.28);
+  }
+
+  .game-pane {
+    display: none;
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 24px;
+    padding: 24px 18px;
+    border: 1px solid rgba(251, 191, 36, 0.32);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+  }
+
+  .game-pane.active {
+    display: block;
+    animation: fadeUp 0.35s var(--ease-spring);
+  }
+
+  /* ===== GAME 1: Deluxe 3-Tier Pastel Birthday Cake ===== */
+  .cake-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .cake-showcase {
+    position: relative;
+    width: 310px;
+    height: 295px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 12px;
+    background: radial-gradient(circle at 50% 48%, rgba(254, 240, 138, 0.45), rgba(251, 207, 232, 0.22) 55%, transparent 74%);
+    border-radius: 28px;
+  }
+
+  .candles-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: -3px;
+    z-index: 6;
+  }
+
+  .candle-unit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .candle-stick {
+    width: 14px;
+    height: 48px;
+    border-radius: 7px 7px 3px 3px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #ff5e7e,
+      #ff5e7e 5px,
+      #ffffff 5px,
+      #ffffff 10px
+    );
+    border: 1.5px solid #fff;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.2);
+  }
+
+  .candle-unit.center .candle-stick {
+    height: 58px;
+    width: 16px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #f59e0b,
+      #f59e0b 5px,
+      #fffbeb 5px,
+      #fffbeb 10px
+    );
+  }
+
+  .candle-wick {
+    width: 2px;
+    height: 6px;
+    background: #334155;
+    border-radius: 2px;
+  }
+
+  .flame {
+    position: absolute;
+    top: -31px;
+    left: 50%;
+    width: 18px;
+    height: 29px;
+    transform: translateX(-50%) skewX(var(--wind-skew, 0deg)) scaleY(var(--wind-scale, 1));
+    transform-origin: bottom center;
+    background: radial-gradient(circle at 50% 72%, #ffffff 12%, #fef08a 44%, #fb923c 78%, #f43f5e 100%);
+    border-radius: 50% 50% 50% 50% / 68% 68% 32% 32%;
+    box-shadow:
+      0 0 14px #fde047,
+      0 0 28px rgba(251, 146, 60, 0.85),
+      0 0 42px rgba(244, 63, 94, 0.35);
+    transition: transform 0.16s ease, opacity 0.25s ease;
+    animation: flickerFlame 1.1s ease-in-out infinite alternate;
+  }
+
+  .flame::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 12px;
+    background: #fffbeb;
+    border-radius: 50%;
+    opacity: 0.9;
+  }
+
+  @keyframes flickerFlame {
+    0% { transform: translateX(-50%) scale(0.95, 1.03) rotate(-1.5deg); }
+    100% { transform: translateX(-50%) scale(1.04, 0.96) rotate(1.5deg); }
+  }
+
+  .flame.blown {
+    opacity: 0;
+    animation: none;
+    pointer-events: none;
+  }
+
+  .smoke-puff {
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.35rem;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .smoke-puff.show {
+    animation: smokeRise 1.5s ease-out forwards;
+  }
+
+  @keyframes smokeRise {
+    0% { opacity: 0.9; transform: translate(-50%, 0) scale(0.65); }
+    100% { opacity: 0; transform: translate(-50%, -56px) scale(1.45); }
+  }
+
+  /* Tier 1 (Top) */
+  .tier-top {
+    position: relative;
+    width: 132px;
+    height: 46px;
+    background: linear-gradient(180deg, #ffd6e0 0%, #ff8fa3 100%);
+    border-radius: 18px 18px 8px 8px;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 6px 14px rgba(244, 63, 94, 0.18);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .age-topper {
+    background: linear-gradient(135deg, #fffbeb, #fef08a);
+    color: #be123c;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    border: 1.5px solid #f59e0b;
+    box-shadow: 0 3px 8px rgba(217, 119, 6, 0.2);
+  }
+
+  /* Cream Drips */
+  .cream-drips {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background:
+      radial-gradient(circle at 12px 6px, #ffffff 9px, transparent 10px),
+      radial-gradient(circle at 34px 9px, #ffffff 10px, transparent 11px),
+      radial-gradient(circle at 58px 6px, #ffffff 9px, transparent 10px),
+      radial-gradient(circle at 82px 10px, #ffffff 10px, transparent 11px),
+      radial-gradient(circle at 106px 6px, #ffffff 9px, transparent 10px),
+      radial-gradient(circle at 130px 9px, #ffffff 10px, transparent 11px),
+      radial-gradient(circle at 154px 6px, #ffffff 9px, transparent 10px),
+      radial-gradient(circle at 178px 9px, #ffffff 10px, transparent 11px),
+      radial-gradient(circle at 202px 6px, #ffffff 9px, transparent 10px),
+      radial-gradient(circle at 226px 8px, #ffffff 9px, transparent 10px);
+    pointer-events: none;
+  }
+
+  /* Tier 2 (Middle) */
+  .tier-mid {
+    position: relative;
+    width: 186px;
+    height: 54px;
+    margin-top: -3px;
+    background: linear-gradient(180deg, #fff9db 0%, #fde68a 100%);
+    border-radius: 16px 16px 10px 10px;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 8px 16px rgba(245, 158, 11, 0.2);
+    z-index: 4;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 0 12px 6px;
+  }
+
+  .berry-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fda4af, #e11d48);
+    box-shadow: 0 2px 4px rgba(190, 18, 60, 0.25);
+  }
+
+  .berry-dot.mint {
+    background: radial-gradient(circle at 35% 30%, #6ee7b7, #059669);
+  }
+
+  /* Tier 3 (Bottom) */
+  .tier-bottom {
+    position: relative;
+    width: 244px;
+    height: 64px;
+    margin-top: -3px;
+    background: linear-gradient(180deg, #ffccd5 0%, #ff758f 100%);
+    border-radius: 18px 18px 22px 22px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 12px 22px rgba(225, 29, 72, 0.22);
+    z-index: 3;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ribbon-band {
+    width: 100%;
+    height: 16px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #fef08a, #ffffff, #fef08a);
+    border-top: 1.5px solid #f59e0b;
+    border-bottom: 1.5px solid #f59e0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #9d174d;
+  }
+
+  /* Gold Cake Stand */
+  .cake-stand-top {
+    width: 274px;
+    height: 12px;
+    margin-top: -2px;
+    background: linear-gradient(90deg, #fde68a, #ffffff, #fbbf24, #ffffff, #fde68a);
+    border-radius: 999px;
+    border: 1.5px solid #f59e0b;
+    box-shadow: 0 6px 14px rgba(180, 83, 9, 0.18);
+    z-index: 2;
+  }
+
+  .cake-stand-stem {
+    width: 44px;
+    height: 16px;
+    background: linear-gradient(90deg, #f59e0b, #fef08a, #d97706);
+    clip-path: polygon(18% 0%, 82% 0%, 100% 100%, 0% 100%);
+  }
+
+  .cake-stand-base {
+    width: 126px;
+    height: 9px;
+    background: linear-gradient(90deg, #fbbf24, #fffbeb, #f59e0b);
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.14);
+  }
+
+  /* Game 2: Balloon Pop */
+  .balloon-arena {
+    position: relative;
+    height: 320px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #e0f2fe 0%, #fef9c3 65%, #fce7f3 100%);
+    border: 2px dashed rgba(244, 114, 182, 0.45);
+    overflow: hidden;
+  }
+
+  .balloon {
+    position: absolute;
+    bottom: -70px;
+    width: 54px;
+    height: 66px;
+    border-radius: 50% 50% 45% 45%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 1.45rem;
+    box-shadow: inset -6px -8px 14px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.12);
+    user-select: none;
+  }
+
+  .balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    width: 2px;
+    height: 16px;
+    background: rgba(100, 116, 139, 0.55);
+    transform: translateX(-50%);
+  }
+
+  .wish-toast {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: #ecfdf5;
+    border: 1px solid #6ee7b7;
+    color: #065f46;
+    font-weight: 600;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Game 3: Catch Gift Canvas */
+  .catch-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #catchCanvas {
+    width: 100%;
+    max-width: 540px;
+    height: 340px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #f0f9ff 0%, #fefce8 70%, #dcfce7 100%);
+    border: 2px solid rgba(14, 165, 233, 0.25);
+    touch-action: none;
+  }
+
+  /* Game 4: Memory Flip */
+  .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(64px, 1fr));
+    gap: 10px;
+    max-width: 440px;
+    margin: 12px auto 0;
+  }
+
+  .mem-card {
+    aspect-ratio: 1 / 1;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fde047, #fda4af);
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(244, 63, 94, 0.18);
+    transition: transform 0.22s ease, background 0.25s ease;
+  }
+
+  .mem-card.revealed, .mem-card.matched {
+    background: #ffffff;
+    border: 2px solid #34d399;
+    transform: rotateY(180deg) scaleX(-1);
+    box-shadow: 0 6px 14px rgba(16, 185, 129, 0.2);
+  }
+
+  .mem-card.matched {
+    background: #ecfdf5;
+  }
+
+  /* Game 5: 3x3 Whack-a-Gift */
+  .whack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+    margin: 14px auto 0;
+  }
+
+  .whack-hole {
+    aspect-ratio: 1 / 1;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%);
+    border: 2.5px solid #f59e0b;
+    display: grid;
+    place-items: center;
+    font-size: 2.2rem;
+    cursor: pointer;
+    box-shadow: inset 0 6px 12px rgba(217, 119, 6, 0.18), 0 6px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.12s ease, background 0.2s ease;
+    user-select: none;
+  }
+
+  .whack-hole.pop {
+    background: linear-gradient(135deg, #fbcfe8, #fef08a);
+    transform: scale(1.05);
+  }
+
+  .whack-hole:active {
+    transform: scale(0.93);
+  }
+
+  .hud-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 18px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+  }
+
+  .hud-pill {
+    background: #f1f5f9;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 560px) {
+    .card-panel {
+      padding: 20px 15px;
+      border-radius: 22px;
+    }
+    .formal-letter {
+      padding: 22px 18px;
+    }
+    .memory-grid {
+      gap: 8px;
+    }
+    .cake-showcase {
+      max-width: 100%;
+    }
+    .cake-stand-top {
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+<canvas id="fxCanvas"></canvas>
+
+<div class="container">
+  <!-- Màn hình mở đầu -->
+  <section id="introGate">
+    <div class="badge-date">🎉 SINH NHẬT 21/11 • BƯỚC SANG TUỔI 23 🎉</div>
+    <button id="openGiftBtn" class="gift-btn" title="Bấm để mở quà sinh nhật">🎁</button>
+    <h1 class="intro-title">Mừng Sinh Nhật 23 Tuổi Rực Rỡ!</h1>
+    <p class="intro-sub">
+      Chạm vào hộp quà để mở thiệp chúc mừng sinh nhật 21/11, bật nhạc nền sôi động, pháo hoa giấy và khám phá trò chơi giải trí!
+    </p>
+  </section>
+
+  <!-- Ứng dụng chính -->
+  <main id="mainApp">
+    <header class="top-bar">
+      <div class="top-tag">
+        <span>☀️</span>
+        <span>Sinh Nhật 21/11 • Tuổi 23 Rực Rỡ</span>
+      </div>
+      <div class="top-actions">
+        <span id="topTrackBadge" class="track-pill">🎵 ILLIT — Do The Dance</span>
+        <button id="toggleMusicBtn" class="btn btn-mint">🎵 Nhạc: Đang bật</button>
+      </div>
+    </header>
+
+    <!-- Thiệp chúc mừng trang trọng -->
+    <section class="card-panel">
+      <article class="formal-letter">
+        <div class="letter-meta">
+          <span class="letter-kicker">✦ Thiệp Chúc Mừng Sinh Nhật ✦</span>
+          <span class="age-pill">🎈 21/11 • Tròn 23 Tuổi</span>
+        </div>
+
+        <h1 class="hero-heading">Chúc Mừng Sinh Nhật Chị — Tuổi 23 Rạng Rỡ &amp; Thành Công!</h1>
+        <p class="formal-salutation">Chị ơi, hôm nay là sinh nhật chị.</p>
+
+        <div class="wish-body" id="wishDisplay"></div>
+
+        <div class="formal-signoff">
+          <span>Ngày 21 tháng 11 • Tuổi 23</span>
+          <strong> Cẩm Tiên </strong>
+        </div>
+      </article>
+    </section>
+
+    <!-- Khu vực trò chơi -->
+    <section class="card-panel">
+      <div class="games-section-title">
+        <h2>🎮 Khu Vui Chơi Sinh Nhật </h2>
+        <span style="font-size:0.88rem;color:var(--text-soft);font-weight:600;">Chọn một trò bên dưới để trải nghiệm</span>
+      </div>
+
+      <div class="tab-bar" role="tablist">
+        <button class="tab-btn active" data-game="cake">1. Bánh Kem &amp; Thổi Nến</button>
+        <button class="tab-btn" data-game="balloon">2. Đập Bóng Săn Lời Chúc</button>
+        <button class="tab-btn" data-game="catch">3. Hứng Quà &amp; Né Bom</button>
+        <button class="tab-btn" data-game="memory">4. Lật Thẻ Trí Nhớ</button>
+        <button class="tab-btn" data-game="whack">5. Nhanh Tay Bắt Lộc</button>
+      </div>
+
+      <!-- Trò 1: Bánh kem 3 tầng sang trọng -->
+      <div class="game-pane active" id="game-cake">
+        <div class="cake-stage">
+          <div class="cake-showcase">
+            <div class="candles-row">
+              <div class="candle-unit">
+                <div class="smoke-puff">💨</div>
+                <div class="flame"></div>
+                <div class="candle-wick"></div>
+                <div class="candle-stick"></div>
+              </div>
+              <div class="candle-unit center">
+                <div class="smoke-puff">💨</div>
+                <div class="flame"></div>
+                <div class="candle-wick"></div>
+                <div class="candle-stick"></div>
+              </div>
+              <div class="candle-unit">
+                <div class="smoke-puff">💨</div>
+                <div class="flame"></div>
+                <div class="candle-wick"></div>
+                <div class="candle-stick"></div>
+              </div>
+            </div>
+
+            <div class="tier-top">
+              <span class="age-topper">23 • 21/11</span>
+            </div>
+
+            <div class="tier-mid">
+              <div class="cream-drips"></div>
+              <span class="berry-dot"></span>
+              <span class="berry-dot mint"></span>
+              <span class="berry-dot"></span>
+              <span class="berry-dot mint"></span>
+              <span class="berry-dot"></span>
+              <span class="berry-dot mint"></span>
+            </div>
+
+            <div class="tier-bottom">
+              <div class="cream-drips"></div>
+              <div class="ribbon-band">HAPPY 23RD BIRTHDAY</div>
+            </div>
+
+            <div class="cake-stand-top"></div>
+            <div class="cake-stand-stem"></div>
+            <div class="cake-stand-base"></div>
+          </div>
+
+          <p id="cakeStatus" style="font-weight:700;color:#be123c;max-width:480px;">
+            🕯️ Hãy nhắm mắt ước một điều thật đẹp cho tuổi 23 ngày 21/11 rồi bấm nút thổi tắt nến nhé!
+          </p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:4px;">
+            <button id="blowBtn" class="btn btn-primary">💨 Thổi Tắt Nến</button>
+            <button id="relightBtn" class="btn btn-sun">🔥 Thắp Lại Nến</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trò 2: Đập bóng săn lời chúc -->
+      <div class="game-pane" id="game-balloon">
+        <div class="hud-row">
+          <span class="hud-pill">🎈 Đã đập: <strong id="balloonCount">0</strong></span>
+          <span class="hud-pill">⚡ Combo: <strong id="balloonCombo">x1</strong></span>
+          <button id="resetBalloonBtn" class="btn btn-soft" style="padding:6px 12px;">Làm mới bóng</button>
+        </div>
+        <div class="balloon-arena" id="balloonArena"></div>
+        <div class="wish-toast" id="balloonWishToast">Chạm vào từng quả bóng bay để mở lời chúc tuổi 23 nhé!</div>
+      </div>
+
+      <!-- Trò 3: Hứng quà & né bom -->
+      <div class="game-pane" id="game-catch">
+        <div class="hud-row">
+          <span class="hud-pill">⭐ Điểm: <strong id="catchScore">0</strong></span>
+          <span class="hud-pill">❤️ Mạng: <strong id="catchLives">3</strong></span>
+          <span class="hud-pill">🏆 Kỷ lục: <strong id="catchBest">0</strong></span>
+          <button id="startCatchBtn" class="btn btn-primary" style="padding:7px 14px;">▶️ Chơi / Chơi lại</button>
+        </div>
+        <div class="catch-wrap">
+          <canvas id="catchCanvas" width="540" height="340"></canvas>
+          <p style="font-size:0.84rem;color:var(--text-soft);text-align:center;">
+            Kéo chuột / vuốt ngón tay hoặc dùng phím <strong>← →</strong> để hứng 🎂 (+15), 🎁 (+10), 💎 (+25) và tránh 💣!
+          </p>
+        </div>
+      </div>
+
+      <!-- Trò 4: Lật thẻ trí nhớ -->
+      <div class="game-pane" id="game-memory">
+        <div class="hud-row">
+          <span class="hud-pill">🔄 Số lượt lật: <strong id="memMoves">0</strong></span>
+          <span class="hud-pill">✅ Đã ghép: <strong id="memMatched">0</strong>/6</span>
+          <button id="resetMemoryBtn" class="btn btn-mint" style="padding:7px 14px;">🔀 Xáo bài mới</button>
+        </div>
+        <div class="memory-grid" id="memoryGrid"></div>
+        <div class="wish-toast" id="memStatus">Lật 2 thẻ giống nhau để ghép đủ 6 cặp biểu tượng sinh nhật!</div>
+      </div>
+
+      <!-- Trò 5: Nhanh tay bắt lộc -->
+      <div class="game-pane" id="game-whack">
+        <div class="hud-row">
+          <span class="hud-pill">⏱️ Thời gian: <strong id="whackTime">25</strong>s</span>
+          <span class="hud-pill">🎯 Điểm: <strong id="whackScore">0</strong></span>
+          <span class="hud-pill">🔥 Chuỗi: <strong id="whackStreak">0</strong></span>
+          <button id="startWhackBtn" class="btn btn-sun" style="padding:7px 14px;">⚡ Bắt đầu 25s</button>
+        </div>
+        <div class="whack-grid" id="whackGrid"></div>
+        <div class="wish-toast" id="whackStatus">Chạm nhanh vào 🎁 (+10), 🎂 (+15), 👑 (+25) — đừng chạm nhầm 💣 (-15)!</div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(() => {
+  // ===== 1. Audio Player (tự động dùng file nhạc ILLIT Do The Dance Lyrics.mp3 trong cùng thư mục hoặc nhạc chuông vui nhộn dự phòng) =====
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  let audioCtx = null;
+  let musicEnabled = true;
+  let synthTimer = null;
+
+  const fixedAudioPlayer = new Audio("ILLIT Do The Dance Lyrics.mp3");
+  fixedAudioPlayer.loop = true;
+  fixedAudioPlayer.volume = 0.85;
+
+  function ensureAudio() {
+    if (!audioCtx && AudioCtx) {
+      audioCtx = new AudioCtx();
+    }
+    if (audioCtx && audioCtx.state === "suspended") {
+      audioCtx.resume().catch(() => {});
+    }
+  }
+
+  function playTone(freq, duration = 0.22, type = "triangle", volume = 0.08, delay = 0) {
+    if (!musicEnabled || !audioCtx) return;
+    const now = audioCtx.currentTime + delay;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, now);
+    gain.gain.setValueAtTime(0.001, now);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.001, volume), now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0008, now + duration);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + duration + 0.03);
+  }
+
+  function startFallbackMelody() {
+    clearInterval(synthTimer);
+    const notes = [261.63, 261.63, 293.66, 261.63, 349.23, 329.63, 261.63, 261.63, 293.66, 261.63, 392.00, 349.23];
+    let step = 0;
+    synthTimer = setInterval(() => {
+      if (!musicEnabled) return;
+      playTone(notes[step % notes.length], 0.32, "sine", 0.06);
+      step++;
+    }, 450);
+  }
+
+  function playPopSound() {
+    playTone(580, 0.1, "sine", 0.12);
+    playTone(880, 0.08, "triangle", 0.07, 0.03);
+  }
+
+  function playScoreSound(good = true) {
+    if (good) {
+      playTone(659.25, 0.11, "triangle", 0.1);
+      playTone(880, 0.14, "sine", 0.1, 0.07);
+    } else {
+      playTone(190, 0.22, "sawtooth", 0.09);
+    }
+  }
+
+  function startMusic() {
+    ensureAudio();
+    musicEnabled = true;
+    updateMusicBtn();
+    fixedAudioPlayer.play().catch(() => {
+      startFallbackMelody();
+    });
+  }
+
+  function stopMusic() {
+    musicEnabled = false;
+    fixedAudioPlayer.pause();
+    clearInterval(synthTimer);
+    updateMusicBtn();
+  }
+
+  function updateMusicBtn() {
+    const btn = document.getElementById("toggleMusicBtn");
+    btn.textContent = musicEnabled ? "🎵 Nhạc: Đang bật" : "🔇 Nhạc: Đang tắt";
+  }
+
+  // ===== 2. Confetti & Sparkle Canvas =====
+  const fxCanvas = document.getElementById("fxCanvas");
+  const fxCtx = fxCanvas.getContext("2d");
+  let particles = [];
+
+  function resizeFx() {
+    fxCanvas.width = window.innerWidth;
+    fxCanvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeFx);
+  resizeFx();
+
+  const brightColors = ["#ff5e7e", "#fbbf24", "#34d399", "#38bdf8", "#a78bfa", "#fb923c"];
+  const confettiColors = [
+    { base: "#fb7185", light: "#fda4af", dark: "#e11d48" },
+    { base: "#ec4899", light: "#f9a8d4", dark: "#be185d" },
+    { base: "#34d399", light: "#6ee7b7", dark: "#059669" },
+    { base: "#38bdf8", light: "#7dd3fc", dark: "#0284c7" },
+    { base: "#a78bfa", light: "#c4b5fd", dark: "#7c3aed" },
+    { base: "#fb923c", light: "#fdba74", dark: "#ea580c" }
+  ];
+
+  function randomConfettiColor() {
+    return confettiColors[Math.floor(Math.random() * confettiColors.length)];
+  }
+
+  function spawnConfetti(count = 70, originX = null, originY = null) {
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 7.5 + Math.random() * 9.5;
+      particles.push({
+        x: originX ?? Math.random() * fxCanvas.width,
+        y: originY ?? Math.random() * fxCanvas.height * 0.45,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 6,
+        size: 12 + Math.random() * 10,
+        color: randomConfettiColor(),
+        rot: (Math.random() - 0.5) * 0.5,
+        vRot: 0,
+        life: 1,
+        decay: 0.008 + Math.random() * 0.012,
+        flutter: 0.025 + Math.random() * 0.04,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function spawnConfettiRain(count = 260, durationMs = 2200, bounds = null) {
+    const startedAt = performance.now();
+    let lastBatchAt = startedAt;
+    const left = bounds ? bounds.left : 0;
+    const right = bounds ? bounds.right : fxCanvas.width;
+    const spawnWidth = Math.max(1, right - left);
+    const top = bounds ? bounds.top : -20;
+    const originX = bounds ? (left + (right - left) / 2) : fxCanvas.width / 2;
+    const originY = bounds ? (top + bounds.height * 0.45) : fxCanvas.height * 0.28;
+
+    function releaseBatch(now) {
+      const elapsed = now - startedAt;
+      if (elapsed >= durationMs) return;
+
+      if (now - lastBatchAt >= 75) {
+        lastBatchAt = now;
+        const batchSize = 10 + Math.floor(Math.random() * 5);
+        for (let i = 0; i < batchSize; i++) {
+          particles.push({
+            x: left + Math.random() * spawnWidth,
+            y: top - 20 - Math.random() * 80,
+            vx: (Math.random() - 0.5) * 2.8,
+            vy: 1.8 + Math.random() * 3.2,
+            size: 12 + Math.random() * 10,
+            color: randomConfettiColor(),
+            rot: (Math.random() - 0.5) * 0.5,
+            vRot: 0,
+            life: 1,
+            decay: 0.0022 + Math.random() * 0.0018,
+            flutter: 0.025 + Math.random() * 0.045,
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+      requestAnimationFrame(releaseBatch);
+    }
+
+    spawnConfetti(count, originX, originY);
+    requestAnimationFrame(releaseBatch);
+  }
+
+  function loopFx() {
+    fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.phase = (p.phase ?? 0) + (p.flutter ?? 0);
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += p.vy < 3.8 ? 0.055 : 0.025;
+      p.vx = p.vx * 0.992 + Math.sin(p.phase) * 0.018;
+      p.rot += p.vRot;
+      p.life -= p.decay;
+
+      if (p.life <= 0 || p.y > fxCanvas.height + 30) {
+        particles.splice(i, 1);
+        continue;
+      }
+      fxCtx.save();
+      fxCtx.globalAlpha = Math.max(0, p.life);
+      fxCtx.translate(p.x, p.y);
+      fxCtx.rotate(p.rot + Math.sin(p.phase) * 0.08);
+      const flip = 0.35 + Math.abs(Math.cos(p.phase)) * 0.65;
+      fxCtx.scale(flip, 1);
+      const halfWidth = p.size / 2;
+      const halfHeight = p.size * 0.3;
+      const radius = Math.min(2, halfHeight);
+      const paperGradient = fxCtx.createLinearGradient(-halfWidth, -halfHeight, halfWidth, halfHeight);
+      paperGradient.addColorStop(0, p.color.light);
+      paperGradient.addColorStop(0.48, p.color.base);
+      paperGradient.addColorStop(1, p.color.dark);
+      fxCtx.fillStyle = paperGradient;
+      fxCtx.beginPath();
+      fxCtx.moveTo(-halfWidth + radius, -halfHeight);
+      fxCtx.lineTo(halfWidth - radius, -halfHeight);
+      fxCtx.quadraticCurveTo(halfWidth, -halfHeight, halfWidth, -halfHeight + radius);
+      fxCtx.lineTo(halfWidth, halfHeight - radius);
+      fxCtx.quadraticCurveTo(halfWidth, halfHeight, halfWidth - radius, halfHeight);
+      fxCtx.lineTo(-halfWidth + radius, halfHeight);
+      fxCtx.quadraticCurveTo(-halfWidth, halfHeight, -halfWidth, halfHeight - radius);
+      fxCtx.lineTo(-halfWidth, -halfHeight + radius);
+      fxCtx.quadraticCurveTo(-halfWidth, -halfHeight, -halfWidth + radius, -halfHeight);
+      fxCtx.closePath();
+      fxCtx.fill();
+      fxCtx.restore();
+    }
+    requestAnimationFrame(loopFx);
+  }
+  loopFx();
+
+  // ===== 3. Single Formal Greeting =====
+  const formalWishText =
+    "Hai chị em mình đã không còn nói chuyện với nhau, nhưng hôm nay em vẫn muốn gửi chị vài dòng.\n\n" +
+    "Có những điều trong lòng, em chẳng biết nói sao cho vừa. Em nhớ những ngày mình còn chơi chung với nhau, nên khi khoảng cách cứ lớn dần đến mức im lặng, em càng ngày càng thấy nặng trĩu hơn. Em không muốn tranh đúng sai nữa, chỉ mong mỗi người chịu khó nhìn lại mình một chút, để tình chị em không phai nhạt thêm theo năm tháng. Với em, chị vẫn là người thân trong nhà, và em hy vọng chị cũng nghĩ như vậy.\n\n" +
+    "Sinh nhật tuổi 23, em chúc chị sức khỏe dồi dào, lòng luôn bình yên và nụ cười luôn rạng rỡ. Chúc chị mọi dự định đều nở hoa, và bên cạnh chị luôn có những người thương chị thật lòng, biết trân trọng chị. Mong tuổi mới sẽ dịu dàng với chị hơn tất cả những gì mà chị đã trải qua.\n\n" +
+    "Dù thế nào, em vẫn mong chị được vui. Sinh nhật vui vẻ chị nhé! 🎂";
+
+  const wishDisplay = document.getElementById("wishDisplay");
+
+  function renderFormalWish(onComplete) {
+    wishDisplay.innerHTML = "";
+    const textSpan = document.createElement("span");
+    const cursorSpan = document.createElement("span");
+    cursorSpan.className = "type-cursor";
+    wishDisplay.appendChild(textSpan);
+    wishDisplay.appendChild(cursorSpan);
+
+    let idx = 0;
+    const timer = setInterval(() => {
+      textSpan.textContent += formalWishText[idx];
+      idx++;
+      if (idx >= formalWishText.length) {
+        clearInterval(timer);
+        setTimeout(() => cursorSpan.remove(), 1400);
+        if (typeof onComplete === "function") onComplete();
+      }
+    }, 18);
+  }
+
+  // Opening Gate
+  document.getElementById("openGiftBtn").addEventListener("click", () => {
+    const gate = document.getElementById("introGate");
+    const app = document.getElementById("mainApp");
+    gate.classList.add("hidden");
+    setTimeout(() => {
+      app.classList.add("active");
+      startMusic();
+      spawnConfetti(120);
+      initBalloonGame();
+      initMemoryGame();
+      renderFormalWish(() => {
+        setTimeout(() => {
+          document.getElementById("game-cake").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }, 1200);
+      });
+    }, 260);
+  });
+
+  document.getElementById("toggleMusicBtn").addEventListener("click", () => {
+    if (musicEnabled) stopMusic();
+    else startMusic();
+  });
+
+  const burstBtn = document.getElementById("burstBtn");
+  if (burstBtn) {
+    burstBtn.addEventListener("click", (e) => {
+      ensureAudio();
+      playScoreSound(true);
+      spawnConfettiRain(130, 1500);
+    });
+  }
+
+  // ===== 4. Game Tabs =====
+  document.querySelectorAll(".tab-btn").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      ensureAudio();
+      playPopSound();
+      const target = tab.dataset.game;
+      document.querySelectorAll(".tab-btn").forEach((t) => t.classList.toggle("active", t === tab));
+      document.querySelectorAll(".game-pane").forEach((pane) => {
+        pane.classList.toggle("active", pane.id === `game-${target}`);
+      });
+    });
+  });
+
+  // ===== GAME 1: 3-Tier Deluxe Cake & Blow Candles =====
+  const flames = document.querySelectorAll(".flame");
+  const smokes = document.querySelectorAll(".smoke-puff");
+  const cakeStatus = document.getElementById("cakeStatus");
+  let candleLit = true;
+
+  function blowOutCandle() {
+    if (!candleLit) return;
+    candleLit = false;
+    flames.forEach((f) => f.classList.add("blown"));
+    smokes.forEach((s) => {
+      s.classList.remove("show");
+      void s.offsetWidth;
+      s.classList.add("show");
+    });
+    cakeStatus.textContent = "🎉 Phù! Cả 3 ngọn nến tuổi 23 đã tắt rồi! Chúc mọi điều ước ngày 21/11 của chị đều trở thành hiện thực!";
+    ensureAudio();
+    playScoreSound(true);
+    const cakeRect = document.querySelector(".cake-stage").getBoundingClientRect();
+    spawnConfettiRain(160, 2000, cakeRect);
+  }
+
+  function relightCandle() {
+    candleLit = true;
+    flames.forEach((f) => {
+      f.style.setProperty("--wind-skew", "0deg");
+      f.style.setProperty("--wind-scale", "1");
+      f.classList.remove("blown");
+    });
+    cakeStatus.textContent = "🕯️ Nến đã được thắp sáng trở lại! Chị có thể ước thêm điều nữa nhé.";
+  }
+
+  document.getElementById("blowBtn").addEventListener("click", () => {
+    if (!candleLit) return;
+    flames.forEach((f) => {
+      f.style.setProperty("--wind-skew", "28deg");
+      f.style.setProperty("--wind-scale", "0.75");
+    });
+    setTimeout(blowOutCandle, 180);
+  });
+
+  document.getElementById("relightBtn").addEventListener("click", relightCandle);
+
+  // ===== GAME 2: Balloon Pop =====
+  const balloonArena = document.getElementById("balloonArena");
+  const balloonWishToast = document.getElementById("balloonWishToast");
+  let balloonCount = 0;
+  let balloonCombo = 0;
+  let balloonSpawner = null;
+
+  const balloonWishes = [
+    "Tuổi 23 rạng rỡ như nắng sớm ngày 21/11!",
+    "Đi đâu cũng gặp quý nhân, làm gì cũng suôn sẻ!",
+    "Sức khỏe dồi dào, tinh thần luôn tươi mới và lạc quan!",
+    "Tài lộc hanh thông, công việc thăng tiến vững vàng!",
+    "Mọi dự định của tuổi 23 đều gặt hái thành công rực rỡ!"
+  ];
+
+  function createBalloon() {
+    if (!document.getElementById("game-balloon").classList.contains("active")) return;
+    const b = document.createElement("div");
+    b.className = "balloon";
+    const leftPct = 8 + Math.random() * 82;
+    const color = brightColors[Math.floor(Math.random() * brightColors.length)];
+    const emojis = ["🎈", "🎂", "⭐", "🌸", "🍀"];
+    b.style.left = `${leftPct}%`;
+    b.style.background = `radial-gradient(circle at 30% 25%, #ffffff88, ${color})`;
+    b.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    let y = -70;
+    const speed = 1.15 + Math.random() * 1.35;
+    let popped = false;
+
+    b.addEventListener("pointerdown", () => {
+      if (popped) return;
+      popped = true;
+      balloonCount++;
+      balloonCombo++;
+      document.getElementById("balloonCount").textContent = balloonCount;
+      document.getElementById("balloonCombo").textContent = `x${balloonCombo}`;
+      const msg = balloonWishes[(balloonCount - 1) % balloonWishes.length];
+      balloonWishToast.textContent = `🎊 ${msg}`;
+      ensureAudio();
+      playPopSound();
+      const rect = b.getBoundingClientRect();
+      spawnConfetti(18, rect.left + rect.width / 2, rect.top + rect.height / 2);
+      b.remove();
+    });
+
+    balloonArena.appendChild(b);
+
+    function rise() {
+      if (popped) return;
+      y += speed;
+      b.style.bottom = `${y}px`;
+      if (y > balloonArena.clientHeight + 70) {
+        balloonCombo = 0;
+        document.getElementById("balloonCombo").textContent = "x1";
+        b.remove();
+        return;
+      }
+      requestAnimationFrame(rise);
+    }
+    requestAnimationFrame(rise);
+  }
+
+  function initBalloonGame() {
+    clearInterval(balloonSpawner);
+    balloonArena.innerHTML = "";
+    balloonCount = 0;
+    balloonCombo = 0;
+    document.getElementById("balloonCount").textContent = "0";
+    document.getElementById("balloonCombo").textContent = "x1";
+    for (let i = 0; i < 4; i++) setTimeout(createBalloon, i * 320);
+    balloonSpawner = setInterval(createBalloon, 950);
+  }
+
+  document.getElementById("resetBalloonBtn").addEventListener("click", initBalloonGame);
+
+  // ===== GAME 3: Catch Gift & Dodge Bomb =====
+  const catchCanvas = document.getElementById("catchCanvas");
+  const cCtx = catchCanvas.getContext("2d");
+  let catchRunning = false;
+  let catchScore = 0;
+  let catchLives = 3;
+  let catchBest = 0;
+  let basketX = catchCanvas.width / 2;
+  let fallingItems = [];
+  let catchRaf = null;
+  let spawnCounter = 0;
+  const keysPressed = { left: false, right: false };
+
+  function updateCatchHud() {
+    document.getElementById("catchScore").textContent = catchScore;
+    document.getElementById("catchLives").textContent = Math.max(0, catchLives);
+    document.getElementById("catchBest").textContent = catchBest;
+  }
+
+  function startCatchGame() {
+    cancelAnimationFrame(catchRaf);
+    catchRunning = true;
+    catchScore = 0;
+    catchLives = 3;
+    fallingItems = [];
+    spawnCounter = 0;
+    basketX = catchCanvas.width / 2;
+    updateCatchHud();
+    loopCatch();
+  }
+
+  function loopCatch() {
+    if (!catchRunning) return;
+    cCtx.clearRect(0, 0, catchCanvas.width, catchCanvas.height);
+
+    if (keysPressed.left) basketX -= 6.5;
+    if (keysPressed.right) basketX += 6.5;
+    basketX = Math.max(38, Math.min(catchCanvas.width - 38, basketX));
+
+    spawnCounter++;
+    if (spawnCounter % 52 === 0) {
+      const r = Math.random();
+      let kind = { emoji: "🎁", pts: 10, bad: false };
+      if (r > 0.80) kind = { emoji: "💣", pts: 0, bad: true };
+      else if (r > 0.58) kind = { emoji: "💎", pts: 25, bad: false };
+      else if (r > 0.34) kind = { emoji: "🎂", pts: 15, bad: false };
+
+      fallingItems.push({
+        x: 28 + Math.random() * (catchCanvas.width - 56),
+        y: -24,
+        vy: 1.45 + Math.min(1.8, catchScore * 0.01) + Math.random() * 0.65,
+        ...kind
+      });
+    }
+
+    cCtx.font = "36px serif";
+    cCtx.textAlign = "center";
+    cCtx.textBaseline = "middle";
+    cCtx.fillText("🧺", basketX, catchCanvas.height - 28);
+
+    for (let i = fallingItems.length - 1; i >= 0; i--) {
+      const item = fallingItems[i];
+      item.y += item.vy;
+      cCtx.font = "28px serif";
+      cCtx.fillText(item.emoji, item.x, item.y);
+
+      const hitBasket =
+        Math.abs(item.x - basketX) < 38 &&
+        item.y >= catchCanvas.height - 54 &&
+        item.y <= catchCanvas.height - 10;
+
+      if (hitBasket) {
+        ensureAudio();
+        if (item.bad) {
+          catchLives--;
+          playScoreSound(false);
+        } else {
+          catchScore += item.pts;
+          if (catchScore > catchBest) catchBest = catchScore;
+          playScoreSound(true);
+        }
+        updateCatchHud();
+        fallingItems.splice(i, 1);
+        if (catchLives <= 0) {
+          catchRunning = false;
+          cCtx.fillStyle = "rgba(15, 23, 42, 0.72)";
+          cCtx.fillRect(0, 0, catchCanvas.width, catchCanvas.height);
+          cCtx.fillStyle = "#ffffff";
+          cCtx.font = "bold 24px 'Be Vietnam Pro', sans-serif";
+          cCtx.fillText(`Hết mạng! Điểm của chị: ${catchScore}`, catchCanvas.width / 2, catchCanvas.height / 2 - 10);
+          cCtx.font = "15px 'Be Vietnam Pro', sans-serif";
+          cCtx.fillText("Bấm 'Chơi / Chơi lại' để thử lại nhé!", catchCanvas.width / 2, catchCanvas.height / 2 + 22);
+          return;
+        }
+        continue;
+      }
+
+      if (item.y > catchCanvas.height + 30) {
+        fallingItems.splice(i, 1);
+      }
+    }
+
+    catchRaf = requestAnimationFrame(loopCatch);
+  }
+
+  catchCanvas.addEventListener("pointermove", (e) => {
+    const rect = catchCanvas.getBoundingClientRect();
+    const scaleX = catchCanvas.width / rect.width;
+    basketX = (e.clientX - rect.left) * scaleX;
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") keysPressed.left = true;
+    if (e.key === "ArrowRight") keysPressed.right = true;
+  });
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "ArrowLeft") keysPressed.left = false;
+    if (e.key === "ArrowRight") keysPressed.right = false;
+  });
+
+  document.getElementById("startCatchBtn").addEventListener("click", startCatchGame);
+
+  // ===== GAME 4: Memory Flip (6 pairs = 12 cards) =====
+  const memSymbols = ["🎂", "🎁", "🎈", "🌟", "🍀", "🍓"];
+  const memoryGrid = document.getElementById("memoryGrid");
+  const memStatus = document.getElementById("memStatus");
+  let memFlipped = [];
+  let memMoves = 0;
+  let memMatched = 0;
+  let memLock = false;
+
+  function initMemoryGame() {
+    memoryGrid.innerHTML = "";
+    memFlipped = [];
+    memMoves = 0;
+    memMatched = 0;
+    memLock = false;
+    document.getElementById("memMoves").textContent = "0";
+    document.getElementById("memMatched").textContent = "0";
+    memStatus.textContent = "Lật 2 thẻ giống nhau để ghép đủ 6 cặp biểu tượng sinh nhật!";
+
+    const deck = [...memSymbols, ...memSymbols].sort(() => Math.random() - 0.5);
+    deck.forEach((sym) => {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "mem-card";
+      card.dataset.sym = sym;
+      card.textContent = "？";
+
+      card.addEventListener("click", () => {
+        if (memLock || card.classList.contains("revealed") || card.classList.contains("matched")) return;
+        ensureAudio();
+        playPopSound();
+        card.classList.add("revealed");
+        card.textContent = sym;
+        memFlipped.push(card);
+
+        if (memFlipped.length === 2) {
+          memMoves++;
+          document.getElementById("memMoves").textContent = memMoves;
+          const [c1, c2] = memFlipped;
+          memFlipped = [];
+
+          if (c1.dataset.sym === c2.dataset.sym) {
+            c1.classList.add("matched");
+            c2.classList.add("matched");
+            memMatched++;
+            document.getElementById("memMatched").textContent = memMatched;
+            playScoreSound(true);
+            if (memMatched === memSymbols.length) {
+              memStatus.textContent = `🏆 Tuyệt vời! Hoàn thành sau ${memMoves} lượt lật!`;
+              spawnConfetti(80);
+            }
+          } else {
+            memLock = true;
+            setTimeout(() => {
+              c1.classList.remove("revealed");
+              c2.classList.remove("revealed");
+              c1.textContent = "？";
+              c2.textContent = "？";
+              memLock = false;
+            }, 620);
+          }
+        }
+      });
+
+      memoryGrid.appendChild(card);
+    });
+  }
+
+  document.getElementById("resetMemoryBtn").addEventListener("click", initMemoryGame);
+
+  // ===== GAME 5: 3x3 Whack-a-Gift =====
+  const whackGrid = document.getElementById("whackGrid");
+  const whackStatus = document.getElementById("whackStatus");
+  let whackScore = 0;
+  let whackStreak = 0;
+  let whackTimeLeft = 25;
+  let whackActive = false;
+  let whackCountdownTimer = null;
+  let whackPopTimer = null;
+  let whackHoles = [];
+
+  const whackItems = [
+    { emoji: "🎁", pts: 10, bad: false },
+    { emoji: "🎂", pts: 15, bad: false },
+    { emoji: "👑", pts: 25, bad: false },
+    { emoji: "💣", pts: -15, bad: true }
+  ];
+
+  function buildWhackBoard() {
+    whackGrid.innerHTML = "";
+    whackHoles = [];
+    for (let i = 0; i < 9; i++) {
+      const hole = document.createElement("div");
+      hole.className = "whack-hole";
+      hole.textContent = "✨";
+      hole.addEventListener("pointerdown", () => {
+        if (!whackActive || !hole.dataset.active) return;
+        const pts = Number(hole.dataset.pts);
+        const bad = hole.dataset.bad === "true";
+        hole.dataset.active = "";
+        hole.classList.remove("pop");
+        hole.textContent = bad ? "💥" : "🎉";
+        ensureAudio();
+        if (bad) {
+          whackScore = Math.max(0, whackScore + pts);
+          whackStreak = 0;
+          playScoreSound(false);
+        } else {
+          whackStreak++;
+          const bonus = whackStreak >= 4 ? 5 : 0;
+          whackScore += pts + bonus;
+          playScoreSound(true);
+        }
+        document.getElementById("whackScore").textContent = whackScore;
+        document.getElementById("whackStreak").textContent = whackStreak;
+        setTimeout(() => {
+          if (!hole.dataset.active) hole.textContent = "✨";
+        }, 220);
+      });
+      whackGrid.appendChild(hole);
+      whackHoles.push(hole);
+    }
+  }
+  buildWhackBoard();
+
+  function popWhackTarget() {
+    if (!whackActive) return;
+    whackHoles.forEach((h) => {
+      h.dataset.active = "";
+      h.classList.remove("pop");
+      h.textContent = "✨";
+    });
+    const idx = Math.floor(Math.random() * whackHoles.length);
+    const pick = whackItems[Math.floor(Math.random() * whackItems.length)];
+    const target = whackHoles[idx];
+    target.dataset.active = "1";
+    target.dataset.pts = String(pick.pts);
+    target.dataset.bad = String(pick.bad);
+    target.classList.add("pop");
+    target.textContent = pick.emoji;
+
+    whackPopTimer = setTimeout(popWhackTarget, 700);
+  }
+
+  function startWhackGame() {
+    clearInterval(whackCountdownTimer);
+    clearTimeout(whackPopTimer);
+    whackScore = 0;
+    whackStreak = 0;
+    whackTimeLeft = 25;
+    whackActive = true;
+    document.getElementById("whackScore").textContent = "0";
+    document.getElementById("whackStreak").textContent = "0";
+    document.getElementById("whackTime").textContent = "25";
+    whackStatus.textContent = "Nhanh tay chạm quà và vương miện, chuỗi >= 4 sẽ cộng thêm +5 điểm!";
+    popWhackTarget();
+
+    whackCountdownTimer = setInterval(() => {
+      whackTimeLeft--;
+      document.getElementById("whackTime").textContent = String(whackTimeLeft);
+      if (whackTimeLeft <= 0) {
+        whackActive = false;
+        clearInterval(whackCountdownTimer);
+        clearTimeout(whackPopTimer);
+        whackHoles.forEach((h) => {
+          h.dataset.active = "";
+          h.classList.remove("pop");
+          h.textContent = "✨";
+        });
+        whackStatus.textContent = `🎊 Hết giờ! Tổng điểm bắt lộc của chị: ${whackScore} điểm!`;
+        if (whackScore >= 60) spawnConfetti(70);
+      }
+    }, 1000);
+  }
+
+  document.getElementById("startWhackBtn").addEventListener("click", startWhackGame);
+})();
+</script>
+</body>
+</html>
